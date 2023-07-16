@@ -1,0 +1,1 @@
+<?php $_SESSION['plantillanews'] = 'Articulo_Ver_news.php'; ?>

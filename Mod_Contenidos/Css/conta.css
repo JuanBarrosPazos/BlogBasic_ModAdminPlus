@@ -1,0 +1,538 @@
+@media screen and (max-width:740px){
+
+	.imgtitle {		
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		width: 40px;
+		height: 50px;
+		overflow: hidden;
+		border-radius: 12px;
+			}
+
+	.ocultahead {
+		visibility: hidden;
+		display: block;
+		width: 0px !important;
+		height: 0px !important;
+		overflow: hidden;
+			}
+
+	.juancentra {
+		width: 98% !important;
+			}
+			
+	.whiletotala {
+		vertical-align: top !important;
+		padding: 1px !important;
+		margin: 0.4em 1px 1px 1px !important;
+		/* border: #fd9c09 solid 1px !important; */
+	}
+
+	.botongrupo {
+		display: block;
+		/* border: 1px solid #fd9c09 */
+	}
+
+	.centradivpage, .centradiv {
+		margin: -14px auto 6px auto !important;
+	}
+	
+	} /* FIN @media screen and (max-width:740px) */
+
+@media screen and (max-width:440px){
+
+	.imgtitle {	
+		width: 0px !important;
+		height: 0px !important;
+		border: none !important;
+		overflow: hidden;
+			}
+
+	.ocultahead {
+		visibility: hidden;
+		display: block;
+		width: 0px !important;
+		height: 0px !important;
+		overflow: hidden;
+			}
+
+	.borderhead {
+		display: block;
+		border: 2px #fff solid !important;
+		border-radius: 6px !important;
+			}
+
+	.whiletotala {
+		vertical-align: top !important;
+		padding: 1px !important;
+		margin: 0.4em 1px 1px 1px !important;
+		/* border: #f40 solid 1px !important; */
+	}
+
+	.whiletotalaimg  {
+		display:block !important;
+		margin-left: auto !important;
+		margin-right: auto !important;
+		max-width: max-content !important;
+		/* border: #93D7BF solid 2px; */
+			}
+
+	.juancentra {
+		/* width: 98% !important; */
+		width: min-content !important;
+			}
+
+	.botongrupo {
+		display: block;
+		/* border: 1px solid #fd9c09 */
+	}
+
+	.centradivpage, .centradiv {
+		margin: -34px auto 6px auto !important;
+	}
+	
+	/*
+	#Caja2Admin {
+		border: cyan solid 1px;
+			}
+	*/
+
+	} /* FIN @media screen and (max-width:440px) */
+
+/*************************************/
+/*************************************/
+/*************************************/
+
+/* FLOTANTE ERRORES FORMULARIO */
+.errors{
+	background-color: #343434;
+	position: fixed;
+	top: 26.0%;
+	left: 3.0%;
+	margin-left: -180px;
+	z-index:999;
+	width: 24.0%;
+	margin: 0px;
+	padding: 0px;
+	border: 1px solid #CCC;
+}
+
+.errorsimg{
+	background-color: #343434;
+	margin: 12px auto 6px auto;
+	z-index:999;
+	width: max-content;
+	padding: 8px;
+	border: 3px solid #fd9c09;
+	border-radius: 8px;
+	font-weight: bold;
+
+}
+
+.MenuVertical {
+	position: fixed;
+	top: 0.2%;
+	left: 0.2%;
+	margin-left: -180px;
+	z-index:999;
+	width: auto;
+	margin: 0px;
+	padding: 0px;
+}
+
+
+/* FLOTANTE VISITAS INDEX ENTRADA */
+.visitas{
+	position: fixed;
+	top: 16.0%;
+	left: 82.0%;
+	margin-left: -180px;
+	z-index:999;
+	margin: 0px;
+	padding: 0px;
+}
+
+ /* BORDES TABLAS DE RESULTADOS. */
+.BorderInf {
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #CCC;
+}
+.BorderSup {
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: #CCC;
+}
+.BorderInfDch {
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-right-color: #CCC;
+	border-bottom-color: #CCC;
+}
+.BorderDch {
+	border-right-width: 1px;
+	border-right-style: solid;
+	border-right-color: #CCC;
+}
+.BorderIzd{
+	border-left-width: 1px;
+	border-left-style: solid;
+	border-left-color: #CCC;
+}
+
+/*************************************/
+/*************************************/
+/*************************************/
+
+#Caja2Admin {
+	/*
+	float: left;
+	*/
+	width: 98%;;
+	height: auto;
+	margin-left: auto;
+	margin-right: auto;
+	color: #FFFFFF;
+	text-align: left;
+}
+
+#Caja2Admin a {
+	color: #CCC;
+	text-decoration: none;
+}
+
+#Caja2Admin a:hover {
+	color: #FF9900;
+	text-decoration: none;
+}
+
+#TitTut {
+	width: 98%;;
+	margin-left: auto;
+	margin-right: auto;
+}
+#TitTut a {
+	color: #666;
+	text-decoration: none;
+}
+
+#TitTut a:hover {
+	color: #333;
+	text-decoration: none;
+}
+
+
+#mensaje {
+	margin-top: 6px;
+}
+
+#foot  {
+	height: 3.25%;
+	width: 98%;
+	margin: 4px auto 4px auto;
+	font-family: "Times New Roman", Times, serif;
+	font-style: normal;
+	text-align: center;
+	color: #CCC;
+	padding: 4px 0px 4px 0px;
+	/*position: fixed;
+	bottom: 1.6%;
+	left: 0.0%;
+	z-index:999;
+	*/
+}
+
+#foot  a  {
+	color: #333333;
+	text-decoration: none;
+}
+
+#foot  a:hover  {
+	color: #CCC;
+	text-decoration: none;
+}
+
+.paginacion, .paginacionb {
+	display: inline-block;
+	margin: 2px 4px 2px 4px;
+	padding: 4px 8px 4px 8px;
+	border: solid #ccc 2px !important;
+	border-radius: 8px;
+}
+.paginacionb {
+	border: solid #f40 2px !important;
+}
+.paginacionb a {
+	color: #f40 !important;
+}
+
+
+.imglogo img {
+	position: relative;
+	display: inline-block;
+	text-decoration: none;
+	/*
+	height: 3.2em !important;
+	width: auto;
+	*/
+}
+
+  .imglogo img, a .img, a:hover img {
+	text-decoration: none !important;
+	border: none !important;
+}
+
+.juancentra {
+    margin: 4px auto 7vh auto;
+	padding-top: 6px;
+	text-align: center;
+    width: max-content;
+    min-width: 320px;
+    height: auto;
+    border: solid 2px #ccc;
+	border-radius: 12px;
+}
+
+.juancentraerror {
+	margin: 0.3em auto 2em auto; 
+	text-align: center;
+    width: 26vw;
+    min-width:300px;
+    height: auto;
+	border: solid 1px #343434;
+}
+
+.juancentramail {
+	margin: 0.3em auto 2em auto; 
+	text-align: left;
+    width: 26vw;
+    min-width:340px;
+    height: auto;
+	/* border: solid 1px #343434; */
+}
+
+.juancentramail input, .juancentramail label, .juancentramail textarea  {
+	margin: 1px 0px 1px 6px;
+}
+
+.juancentracoment {
+	display: inline-block;
+    margin-left: auto;
+	margin-right: auto;
+	padding: 2px;
+	text-align: left;
+	border-top: 1px solid #AAA;
+	border-bottom: 1px solid #AAA;
+	margin: 1px;
+	height: auto;
+}
+
+
+/*	LAS IMAGENES MODIFICADAS */
+
+.img1 {
+	text-align: center;
+	vertical-align: middle;
+	height: auto;
+	width: auto; 
+}
+.img1 img {
+	height: 90px;
+	width: 90px;
+	text-decoration: none;
+	cursor:hand;
+	cursor:pointer;
+}
+.img2 {
+	text-align: center;
+	width: auto;
+	margin: 0px;
+	padding: 0px;
+}
+.img2 img {
+	height: 400px;
+	width: 400px;
+	margin: 0px;
+	cursor: auto;
+}
+
+.whiletotal {
+	display:inline-block; 
+	vertical-align: top !important;
+	width: 100px;
+	padding: 1px 4px 1px 4px; 
+	margin: 0.4em 3px 1px 3px;
+}
+
+.whiletotala, .whiletotalaimg {
+	display:inline-block !important; 
+	vertical-align: top !important;
+	width: max-content;
+	padding: 1px 4px 1px 4px; 
+	margin: 0.4em 3px 1px 3px;
+	/* border: #93D7BF solid 1px; */
+}
+
+.whiletotalaimg  {
+	margin-top: 0px !important;
+	padding: 0px !important;
+	max-width: max-content !important;
+	}
+.whiletotalaimg img, .whiletotala img {
+	border: 1px solid #CCC;
+	border-radius: 6px;
+}
+.whiletotala img {
+	width:auto;
+	max-width:120px;
+	height:54px;
+}
+
+.conte {
+	width: 34%;
+	min-width: 320px;
+	text-align: left;
+}
+
+/*
+.protfolioimg {
+	display: block;
+	overflow: hidden;
+	text-align: center;
+	width: auto;
+	height: 160px;
+	margin: 0px;
+	padding: 0px;
+	}
+
+.portf-img-fluid {
+		width: 100%;
+		height: auto;
+}
+*/
+
+
+/*************************************/
+/*************************************/
+/*************************************/
+
+.pageli, .pagelib {
+	display: inline-block !important;
+	margin: 3px;
+	padding: 3px 8px 3px 8px;
+	font-weight: bold;
+	font-size: 1.0em;
+}
+.pageli {
+	border: solid 1px #fff;
+	border-radius: 6px;
+}
+.pagelib {
+	border: solid 2px #f40;
+	border-radius: 6px;
+}
+
+.pagelib a {
+	color: #f40 !important;
+	text-decoration: none;
+}
+
+.textpaginacion {
+	display: block;
+	width: 100%;
+	text-align: center;
+}
+
+.imgtitle {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 40px;
+	height: 50px;
+	overflow: hidden;
+	border: 1px solid #CCC;
+	border-radius: 12px;
+}
+
+/*************************************/
+/*************************************/
+/*************************************/
+
+.botonverde {
+	background-color: #90faf5;
+}
+.botonnaranja {
+	background-color: #fdc97a;
+}
+.botonrojo {
+	background-color: #ff4d4d;
+}
+.botonazul {
+	background-color: #dd92fd;
+}
+.botonleer {
+	cursor: pointer;
+	margin-top: 4px;
+	padding: 1px 8px 1px 8px !important;
+	border:none;
+	border-radius: 8px;
+	background-color: #CCC;
+}
+.botonverde, .botonnaranja, .botonrojo, .botonazul, select {
+	cursor: pointer;
+	border: none !important;
+	vertical-align: text-bottom;
+	margin: 2px;
+	padding: 5px 5px 3px 5px !important;
+	border-radius: 4px;
+	font-weight: normal;
+	transition: all 1.2s ease;
+}
+.botonverde:hover, .botonnaranja:hover, .botonrojo:hover, .botonazul:hover, .botonleer:hover {
+	background-color: #dadada;
+}
+
+.botongrupo {
+	display: inline-block;
+	/* border: 1px solid #fd9c09 */
+}
+
+/*************************************/
+/*************************************/
+/*************************************/
+
+.imgarticulo {
+	width:98%;
+	max-width:700px;
+	height:auto;
+	border: solid 2px #6c757d;
+	border-radius: 22px;
+}
+
+.centradivpage, .centradiv {
+	margin: -24px auto 6px auto !important;
+}
+
+/* ESTILOS PARA LA GESTION DE PLANTILLAS */
+.gestplantillas {
+	text-align: left;
+	margin: 6px;
+}
+.gestplantillas img {
+	max-width:250px; 
+	height: auto;
+	max-height: 190px;
+	margin-top: 6px;
+	border: 1px solid #CCC;
+	border-radius: 8px;
+}
+.gestplantillas label {
+	display: inline-block;
+	font-weight: bold;
+	color: #FF9900;
+}
+
+/* Creado por Juan Manuel Barros Pazos 2020/21 */
