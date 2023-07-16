@@ -4,7 +4,7 @@
     require 'Mod_Admin_Plus/Conections/conection.php';
     require 'Mod_Admin_Plus/Conections/conect.php';
 
-    //require 'Mod_Admin_Plus/Inclu/error_hidden.php';
+    require 'Mod_Admin_Plus/Inclu/error_hidden.php';
 
   ?>
 
