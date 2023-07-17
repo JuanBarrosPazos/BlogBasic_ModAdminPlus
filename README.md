@@ -21,6 +21,7 @@
 ----
 
 ## Tareas pendientes:
+  - Error en tlf2 al crear primer usuario...
   - Reconfiguración del index raiz.
   - Articulos Gestionar todos?? filtro paginación??
   - Fusional u optimizar: bbdd_export_tot.php & bbdd_My_export_tot.php (en contenidos y admin)
