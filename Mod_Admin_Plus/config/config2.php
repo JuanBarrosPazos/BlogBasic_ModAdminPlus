@@ -114,19 +114,14 @@ if (preg_match('/^(\w{1})*(\s\w{1})/',$_POST['Apellidos'],$ref4)){	$rf4 = $ref4[
 
 	/**************************************/
 
-
-
 	/**************************************/
 
 	global $carpetaimg;
 	
-	global $trf;
-	$trf = $_SESSION['iniref'];
+	global $trf; 			$trf = $_SESSION['iniref'];
 	
-	global $vn1;
-	$vn1 = "img_admin";
-	global $carpetaimg;
-	$carpetaimg = "../Users/".$trf."/".$vn1;
+	global $vn1; 			$vn1 = "img_admin";
+	global $carpetaimg; 	$carpetaimg = "../Users/".$trf."/".$vn1;
 
 	if($_FILES['myimg']['size'] == 0){
 			global $new_name; 	$new_name = $rf.".png";
