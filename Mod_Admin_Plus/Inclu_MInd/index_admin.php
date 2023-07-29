@@ -172,31 +172,33 @@
 				</li>
 			</ul>
 		</li>
-		");
-	} else { }
-
-	print("
 		<li>
-			<a href='".$rutaindex."Mail_Php/index.php' target='_blank'>
-				<i class='ic ico16'></i>NOTIFICACIONES
+			<a href='".$rutaindex."../Mod_Agenda/index.php'>
+				<i class='ic ico10'></i><span>AGENDA</span>
 			</a>
-		</li>
-	
-	<li>
-		<a href='#'>
-			<form name='cerrar' action='".$rutaadmin."mcgexit.php' method='post'>
-				<i class='ic ico01'></i>
-	<input type='submit' value='CLOSE SESSION' style='margin-top:-2px; margin-left:6px;' class='botonverde' />
-		<input type='hidden' name='cerrar' value=1 />
-			</form>
-		</a>
-	</li>
-				</ul>
-			</nav>
-		</aside>
-	</section>
-</div>
+		</li>");
+	} else { 
 
-");
+	print("<li>
+				<a href='".$rutaindex."Mail_Php/index.php' target='_blank'>
+					<i class='ic ico16'></i>NOTIFICACIONES
+				</a>
+			</li>");
+	}
+
+	print("<li>
+				<a href='#'>
+					<form name='cerrar' action='".$rutaadmin."mcgexit.php' method='post'>
+						<i class='ic ico01'></i>
+			<input type='submit' value='CLOSE SESSION' style='margin-top:-2px; margin-left:6px;' class='botonverde' />
+				<input type='hidden' name='cerrar' value=1 />
+					</form>
+				</a>
+			</li>
+					</ul>
+				</nav>
+			</aside>
+		</section>
+	</div>");
 
 ?>

@@ -22,8 +22,8 @@
   `Password` varchar(100) collate utf8_spanish2_ci NOT NULL,
   `Pass` varchar(10) collate utf8_spanish2_ci NOT NULL,
   `Direccion` varchar(60) collate utf8_spanish2_ci NOT NULL,
-  `Tlf1` int(9) NOT NULL default 0,
-  `Tlf2` int(9) NOT NULL default 0,
+  `Tlf1` varchar(9) NOT NULL default 0,
+  `Tlf2` varchar(9) NOT NULL default 0,
   `lastin` datetime collate utf8_spanish2_ci NOT NULL default CURRENT_TIMESTAMP,
   `lastout` datetime collate utf8_spanish2_ci NOT NULL default CURRENT_TIMESTAMP,
   `visitadmin` int(4) collate utf8_spanish2_ci NOT NULL default '0',
@@ -60,8 +60,8 @@
 		`Password` varchar(100) collate utf8_spanish2_ci NOT NULL,
 	  	`Pass` varchar(10) collate utf8_spanish2_ci NOT NULL,
 		`Direccion` varchar(60) collate utf8_spanish2_ci NOT NULL,
-		`Tlf1` int(9) NOT NULL default 0,
-		`Tlf2` int(9) NOT NULL default 0,
+		`Tlf1` varchar(9) NOT NULL default 0,
+		`Tlf2` varchar(9) NOT NULL default 0,
 		`lastin` datetime collate utf8_spanish2_ci NOT NULL,
 		`lastout` datetime collate utf8_spanish2_ci NOT NULL,
 		`visitadmin` varchar(4) collate utf8_spanish2_ci NOT NULL,
@@ -136,11 +136,25 @@
 			}
 
 
+	/************	COMPROBAMOS LAS TABLAS AGENDA	*****************/
+
+	global $tablasAgendaLog; 
+	if(file_exists("../Mod_Agenda/Integra_Admin/CreaTablasAgenda.php")){
+		require "../Mod_Agenda/Integra_Admin/CreaTablasAgenda.php";
+	} else { $tablasAgendaLog = ""; }
+
+	/************	COMPROBAMOS LAS TABLAS CONTACTO	*****************/
+
+		global $tablasContactoLog; 
+	if(file_exists("../Mod_Contacto/Integra_Admin/CreaTablasContacto.php")){
+		require "../Mod_Contacto/Integra_Admin/CreaTablasContacto.php";
+	} else { $tablasContactoLog = ""; }
+
 	/************	SI EXISTE EL CONSTRUCTOR DE TABLAS ARTICULOS	*****************/
 	
 	global $tblArtic;
-	if(file_exists('../Mod_Contenidos_Integra/Inc_Crea_Tablas.php')){
-			require '../Mod_Contenidos_Integra/Inc_Crea_Tablas.php';
+	if(file_exists('../Mod_Contenidos/Integra_Admin/CreaTablasContenido.php')){
+			require '../Mod_Contenidos/Integra_Admin/CreaTablasContenido.php';
 	}else{ /* NO EXISTE EL ARCHIVO */ $tblArtic = "";}
 
 	/************	PASAMOS LOS PARAMETROS A .LOG	*****************/
@@ -158,6 +172,7 @@
 		$text = $text.PHP_EOL." * ".$db_pass;
 		$text = $text.PHP_EOL.$dbconecterror;
 		$text = $text.PHP_EOL.$data0.$table1.$table2.$table3.$table4.$table5.$tblArtic.PHP_EOL;
+		$text = $text.PHP_EOL.$data0.$table1.$table2.$table3.$table4.$table5.$tablasAgendaLog.$tablasContactoLog.$tblArtic.PHP_EOL;
 
 		ini_log();
 
