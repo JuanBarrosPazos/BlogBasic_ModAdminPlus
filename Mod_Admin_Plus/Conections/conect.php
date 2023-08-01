@@ -3,10 +3,9 @@
 	global $db;         global $cero_conection;
     global $keyIndex;   global $keyBlog;
 
-    if($cero_conection == 1){
+    if(($cero_conection == 1)||($keyBlog == 1)){
         echo ("ES IMPOSIBLE CONECTAR CON LA BBDD...</br>");
         header('Location: Mod_Admin_Plus/index.php');
-        if($keyBlog == 1){
             global $redir;
             $redir = "<script type='text/javascript'>
                         function redir(){
@@ -15,10 +14,7 @@
                         setTimeout('redir()',500);
                     </script>";
             print ($redir);
-            }else{ }
-
     }else{
-
         mysqli_report(MYSQLI_REPORT_OFF);
         $db = mysqli_connect($db_host,$db_user,$db_pass,$db_name);
         if (!$db){ 
