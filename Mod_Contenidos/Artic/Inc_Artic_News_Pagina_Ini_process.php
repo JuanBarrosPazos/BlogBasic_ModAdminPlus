@@ -23,7 +23,9 @@
 	}
 
 	global $orden;
-	$orden = "`id` DESC";
+	if((isset($_POST['Orden']))&&($_POST['Orden']|= '')){
+		$orden = $_POST['Orden'];
+	}else { $orden = '`id` DESC'; }
 
 	//global $dd1;
 	

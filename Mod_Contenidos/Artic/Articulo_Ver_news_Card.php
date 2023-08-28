@@ -1,8 +1,8 @@
 <?php
 	//@session_start();
 
-	require '../../Mod_Admin_Plus/Conections/conection.php';
-	require '../../Mod_Admin_Plus/Conections/conect.php';
+	require '../../Mod_Admin/Conections/conection.php';
+	require '../../Mod_Admin/Conections/conect.php';
 
 				   ////////////////////				   ////////////////////
 ////////////////////				////////////////////				////////////////////
@@ -442,13 +442,13 @@ function ver_todo(){
 
 function info(){
 
-	global $db;
-	global $rowout;
-	global $nombre;
-	global $apellido;
-	global $orden;
+	global $db; 		global $rowout;
+	global $nombre; 	global $apellido;
 	
-	$orden = isset($_POST['Orden']);
+	global $orden;
+	if((isset($_POST['Orden']))&&($_POST['Orden']|= '')){
+		$orden = $_POST['Orden'];
+	}else { $orden = '`id` ASC'; }
 	
 	if (isset($_POST['todo'])){$nombre = "TODOS LOS USUARIOS ".$orden;};	
 

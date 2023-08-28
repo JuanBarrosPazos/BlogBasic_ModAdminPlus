@@ -1,14 +1,14 @@
 <?php
 session_start();
 
-  	require '../../Mod_Admin_Plus/Inclu/error_hidden.php';
-	require '../../Mod_Admin_Plus/Inclu/my_bbdd_clave.php';
+  	require '../../Mod_Admin/Inclu/error_hidden.php';
+	require '../../Mod_Admin/Inclu/my_bbdd_clave.php';
 
 	require '../Inclu/Admin_Inclu_Head_b.php';
 	require '../Inclu/mydni.php';
 
-	require '../../Mod_Admin_Plus/Conections/conection.php';
-	require '../../Mod_Admin_Plus/Conections/conect.php';
+	require '../../Mod_Admin/Conections/conection.php';
+	require '../../Mod_Admin/Conections/conect.php';
 
 				   ////////////////////				   ////////////////////
 ////////////////////				////////////////////				////////////////////
@@ -29,7 +29,7 @@ if (($_SESSION['Nivel'] == 'admin') || ($_SESSION['Nivel'] == 'user') || ($_SESS
 		}elseif(isset($_POST['oculto'])){
 
 			if($form_errors = validate_form()){
-							 show_form($form_errors);
+							  show_form($form_errors);
 			} else { process_form();
 					 //info();
 				}
@@ -77,25 +77,27 @@ function process_form(){
 	//$titulo = utf8_decode($titulo);
 	$titulo = "%".$titulo."%";
 	
-	$orden = @$_POST['Orden'];
+	global $orden;
+	if((isset($_POST['Orden']))&&($_POST['Orden']|= '')){
+		$orden = $_POST['Orden'];
+	}else { $orden = '`id` ASC'; }
 
 	global $dyt1; 	global $dm1;
 	//global $dd1;
-	
-	if ($_POST['dy'] == ''){ $dy1 = date('Y');
-							 $dyt1 = $dy1;}
 
-		elseif ((isset($_POST['visiblesi']))||(isset($_POST['visibleno']))||($_POST['oculto'])){ 
+	if ($_POST['dy'] == ''){ $dy1 = date('Y');
+							 $dyt1 = $dy1;
+	}elseif((isset($_POST['visiblesi']))||(isset($_POST['visibleno']))||($_POST['oculto'])){ 
 												$dy1 = $_POST['dy'];
 												$dyt1 = $_POST['dy'];
-		} else { $dy1 = "20".$_POST['dy'];
-				 $dyt1 = "20".$_POST['dy'];}
+	}else{  $dy1 = "20".$_POST['dy'];
+			$dyt1 = "20".$_POST['dy'];}
 
 	if ($_POST['dm'] == ''){ $dm1 = '';
 							 global $fil; 	 $fil = $dy1."-%";
-							}else{	$dm1 = "-".$_POST['dm']."-";
-									global $fil; 	$fil = $dy1.$dm1."%";
-								}
+	}else{	$dm1 = "-".$_POST['dm']."-";
+			global $fil; 	$fil = $dy1.$dm1."%";
+		}
 
 	$_SESSION['dyt1'] = $dyt1;
 	/*
@@ -138,16 +140,18 @@ $refrescaimg = "<form name='refresimg' action='$_SERVER[PHP_SELF]' method='POST'
 	if (strlen(@trim($_POST['visible'])) == 0){ 
 		$sqlc .=  "";
 	}else{
-		$sqlc .=  " AND `visible` LIKE '$visible'";
+		$sqlc .=  " AND `visible` = '$visible'";
 	}
 
 	$sqlc .= " AND `datein` LIKE '$fil' ";
 	$sqlc .= " ORDER BY $orden ";
+
 	//echo $sqlc."<br>";
+
 	$qc = mysqli_query($db, $sqlc);
 
 	if(!$qc){
-			print("<font color='#FF0000'>Consulte L.113: </font></br>".mysqli_error($db)."</br>");
+			print("<font color='#FF0000'>Consulte L.122: </font></br>".mysqli_error($db)."</br>");
 			
 	} else {
 			if(mysqli_num_rows($qc)== 0){
@@ -250,8 +254,11 @@ function ver_todo(){
 	$_SESSION['vt'] = "vt";
 
 	global $db; 	global $db_name;
-	if(isset($_POST['Orden'])){$orden = $_POST['Orden'];}
-	else { $orden = '`id` ASC'; }
+
+	global $orden;
+	if((isset($_POST['Orden']))&&($_POST['Orden']|= '')){
+		$orden = $_POST['Orden'];
+	}else { $orden = '`id` ASC'; }
 	
 	global $dyt1; 	global $dm1; 	global $dd1;
 	
@@ -340,15 +347,13 @@ $refrescaimg = "<form name='refresimg' action='$_SERVER[PHP_SELF]' method='POST'
 
 	function ver_todoIni(){
 		
-		global $db; 	global $db_name;
-		
-		global $vname;
+		global $db; 	global $db_name; 	global $vname;
 		/* 	$vname = "gcb_".date('Y')."_articulos"; */
 		/* MODIFICADA PARA DESARROLLO */
 		$vname = "`".$_SESSION['clave'].date('Y')."articulos"."`";
 		
 		$_SESSION['dyt1'] = date('Y');
-	
+
 		$result =  "SELECT * FROM $vname WHERE `visible` = 'y' ";
 		$q = mysqli_query($db, $result);
 		global $row; 				@$row = mysqli_fetch_assoc($q);
@@ -416,7 +421,7 @@ $refrescaimg = "<form name='refresimg' action='$_SERVER[PHP_SELF]' method='POST'
 					echo "<div class='juancentra' style=\"margin-bottom:0.4em !important;\"><h5>** NO HAY DATOS EN ".$_SESSION['dyt1']." **</h5></div>";
 				} else { 
 						
-		print ("<div class=\"juancentra\" style=\"vertical-align:top !important; margin-top:6px; padding-top:8px; \">
+		print ("<div class=\"juancentra\" style='vertical-align:top !important; margin-top:6px; padding-top:8px;'>
 				Nº Articulos: ".mysqli_num_rows($qb)." YEAR ".$_SESSION['dyt1'].$refrescaimg."<hr>");
 				
 			while($rowb = mysqli_fetch_assoc($qb)){
@@ -425,7 +430,8 @@ $refrescaimg = "<form name='refresimg' action='$_SERVER[PHP_SELF]' method='POST'
 					
 				require '../Artic/Inc_Artic_While_Total.php';
 	
-					} // FIN WHILE
+				} // FIN WHILE
+
 				print("</div>");
 			} 
 		} 
@@ -436,7 +442,7 @@ $refrescaimg = "<form name='refresimg' action='$_SERVER[PHP_SELF]' method='POST'
 	
 			if ($page != 1) {
 				echo '<div class="paginacion">
-						<a href="access.php?page='.($page-1).'">
+						<a href="Articulo_Gestionar.php?page='.($page-1).'">
 							<span aria-hidden="true">&laquo;</span>
 						</a>
 					</div>';
@@ -449,14 +455,14 @@ $refrescaimg = "<form name='refresimg' action='$_SERVER[PHP_SELF]' method='POST'
 						</div>';
 				} else {
 					echo '<div class="paginacion">
-							<a href="access.php?page='.$i.'">'.$i.'</a>
+							<a href="Articulo_Gestionar.php?page='.$i.'">'.$i.'</a>
 						</div>';
 				}
 			}
 	
 			if ($page != $total_pages) {
 				echo '<div class="paginacion">
-						<a href="access.php?page='.($page+1).'">
+						<a href="Articulo_Gestionar.php?page='.($page+1).'">
 							<span aria-hidden="true">&raquo;</span>
 						</a>
 					</div>';
@@ -465,7 +471,7 @@ $refrescaimg = "<form name='refresimg' action='$_SERVER[PHP_SELF]' method='POST'
 	
 			}
 	
-		}	/* Final ver_todo(); */
+		}	/* Final ver_todoIni() */
 	
 					   ////////////////////				   ////////////////////
 	////////////////////				////////////////////				////////////////////
@@ -484,20 +490,20 @@ $refrescaimg = "<form name='refresimg' action='$_SERVER[PHP_SELF]' method='POST'
 
 function info(){
 
-	global $db;
-	global $rowout;
-	global $nombre;
-	global $apellido;
-	global $orden;
+	global $db; 		global $rowout;
+	global $nombre; 	global $apellido;
 	
-	$orden = isset($_POST['Orden']);
+	global $orden;
+	if((isset($_POST['Orden']))&&($_POST['Orden']|= '')){
+		$orden = $_POST['Orden'];
+	}else { $orden = '`id` ASC'; }
 	
 	if (isset($_POST['todo'])){$nombre = "TODOS LOS USUARIOS ".$orden;};	
 
 	$rf = isset($_POST['ref']);
 	if (($_SESSION['Nivel'] == 'user') || ($_SESSION['Nivel'] == 'plus')){	
-										$nombre = $_SESSION['Nombre'];
-										$apellido = $_SESSION['Apellidos'];}
+						$nombre = $_SESSION['Nombre'];
+						$apellido = $_SESSION['Apellidos'];}
 	
 	$ActionTime = date('H:i:s');
 

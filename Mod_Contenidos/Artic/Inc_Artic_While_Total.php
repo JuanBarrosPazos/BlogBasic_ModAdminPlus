@@ -1,5 +1,8 @@
 <?php
 
+    global $dyt1;       $dyt1 = $_SESSION['dyt1'];
+    //echo "*** ".$dyt1." || ".$_SESSION['dyt1']."<br>";
+
     global $conte;
     $conte = substr($rowb['conte'],0,56);
     $conte = $conte." ...";	
