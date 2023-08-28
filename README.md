@@ -9,7 +9,7 @@
 ----
 ## BlogBasic_ModAdminPlus V23.0.8
   - 2023/08/28
-  - MODIFICACIÓN DE LA ESTRUCTURA DEL PROYECTO.
+  - AJUSTES GENERALES DE CODIGO.
 
 ## BlogBasic_ModAdminPlus V23.0.7
   - 2023/07/29
