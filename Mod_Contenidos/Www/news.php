@@ -12,8 +12,7 @@
          
       function articulos(){
 
-      global $db;
-      global $db_name;
+      global $db;      global $db_name;
           
       /************** CREAMOS LA TABLA ARTICULOS ***************/
 
@@ -38,24 +37,55 @@
       UNIQUE KEY `id` (`id`),
       UNIQUE KEY `refart` (`refart`)
     ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci AUTO_INCREMENT=1 ";
-                
-          if(mysqli_query($db, $tg)){
-                  global $dat3;
-                  $dat3 = "\t* OK TABLA ".$articulos."\n";
-                } else {
-                  print( "* NO OK TABLA ".$articulos.". ".mysqli_error($db)."\n");
-                  global $dat3;
-                  $dat3 = "\t* NO OK TABLA ".$articulos.". ".mysqli_error($db)."\n";
-                }
-          }
+             
+    if(mysqli_query($db, $tg)){
+        global $dat3;   $dat3 = "\t* OK TABLA ".$articulos."\n";
+
+        global $rutImg;  $rutImg = "../";
+        global $dateinRef;	$dateinRef = date('Y.m.d'); 
+        global $dateinRef1; $dateinRef1 = $dateinRef.".01.01.01";
+        global $dateinRef1i; $dateinRef1i = $dateinRef1.".png";
+        global $datein; 	$datein = date('Y-m-d');
+        global $timein;		$timein = date('H:i:s');
+        global $newyear;  $newyear = date('Y');
+        global $newyearText; $newyearText = "HAPPY NEW YEAR ".$newyear.". ";
+        global $insertArt;
+        $insertArt = "INSERT INTO `$db_name`.$articulos (`refuser`, `refart`, `tit`, `titsub`, `datein`, `timein`, `datemod`, `timemod`, `conte`, `myimg`, `myvdo`, `myurl`, `visible`) VALUES
+        ('anonimo', '$dateinRef1', '$newyearText', 'FELIZ AÑO NUEVO', '$datein', '$timein', '$datein', '$timein', '$newyearText HAS INICIADO UN NUEVO AÑO EN NUESTRA APP. QUE SEAS MUY FELIZ ESTE AÑO QUE EMPIEZA CON TODOS TUS SERES QUERIDOS.', '$dateinRef1i', NULL, '', 'y')";
+
+        if(mysqli_query($db, $insertArt)){
+          global $dat3; 	$dat3 = $dat3."\t* OK INSERT DATOS EN ".$articulos."\n";
+
+        /* CREO LAS IMAGENES PARA LAS ENTRADAS AUTOMÁTICAS DE LA INSTALACIÓN */
+          if(file_exists($rutImg.'Img.Sys/newyear.png')){
+              copy($rutImg."Img.Sys/newyear.png", $rutImg."Img.Art/".$dateinRef1i);
+              $dat3 = $dat3.PHP_EOL."\tCOPY ".$rutImg."Img.Art/".$dateinRef1i;
+          }elseif(file_exists($rutImg.'Img.Art/newyear.png')){
+              copy($rutImg."Img.Art/newyear.png", $rutImg."Img.Art/".$dateinRef1i);
+              $dat3 = $dat3.PHP_EOL."\tCOPY ".$rutImg."Img.Art/".$dateinRef1i;
+          }else{ 
+              print("DON'T COPY ".$rutImg."Img.Art/".$dateinRef1i."</br>");
+              $dat3 = $dat3.PHP_EOL."\tDON'T COPY ".$rutImg."Img.Art/".$dateinRef1i;
+            }
+
+        }else{ 
+          global $dat3; 	$dat3 = $dat3."\t* NO OK INSERT DATOS EN ".$articulos."\n";
+        }
+
+      } else {
+            print( "* NO OK TABLA ".$articulos.". ".mysqli_error($db)."\n");
+            global $dat3;   $dat3 = "\t* NO OK TABLA ".$articulos.". ".mysqli_error($db)."\n";
+        }
+
+    } // FIN Function articulos()
         
         function modif(){
-                                           
+                               
           $filename = "../Config/ayear.php";
           $fw1 = fopen($filename, 'r+');
           $contenido = fread($fw1,filesize($filename));
           fclose($fw1);
-          
+
           $contenido = explode("\n",$contenido);
           $contenido[2] = "'' => 'YEAR',\n'".date('y')."' => '".date('Y')."',";
           $contenido = implode("\n",$contenido);

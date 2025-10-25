@@ -1,4 +1,4 @@
-# BlogBasic_ModAdminPlus V23.0.8
+# BlogBasic_ModAdminPlus V24.06.04
 
 ## GESTOR DE CONTENIDOS BÁSICO Y ADMIN PLUS CON CONTROL DE HORARIO LABORAL
 
@@ -7,6 +7,10 @@
   - DE NO DETECTAR LA CONEXIÓN A BBDD REDIRECCIONA AL FORMULARIO DE CONEXIONES.
   - ADMINTE IMAGEN Y VIDEO EN LOS ARTICULOS.
 ----
+## BlogBasic_ModAdminPlus V24.06.04
+  - 2024/06/04
+  - Solucionado problema de creación de imagenes en el cambio de año.
+
 ## BlogBasic_ModAdminPlus V23.0.8
   - 2023/08/28
   - AJUSTES GENERALES DE CODIGO.
